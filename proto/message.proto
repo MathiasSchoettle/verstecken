@@ -1,0 +1,22 @@
+syntax = "proto3";
+package message;
+
+import "lobby.proto";
+
+// messages from client to server
+message ClientMessage {
+  string id = 1; // UUID for correlation
+
+  oneof payload {
+    lobby.JoinRequest join_request = 2;
+  }
+}
+
+// messages from server to client
+message ServerMessage {
+  string id = 1; // UUID for correlation
+
+  oneof payload {
+    lobby.JoinResponse join_response = 2;
+  }
+}

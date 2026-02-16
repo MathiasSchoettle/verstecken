@@ -1,0 +1,16 @@
+syntax = "proto3";
+package lobby;
+
+message JoinRequest {
+  string game_id = 1;
+}
+
+enum JoinOutcome {
+  UNKNOWN = 0;
+  SUCCESS = 1;
+  FAILURE = 2;
+}
+
+message JoinResponse {
+  JoinOutcome outcome = 1;
+}
